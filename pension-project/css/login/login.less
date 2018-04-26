@@ -9,12 +9,13 @@ body {
 .login-body {
 	height: 100%;
 	position: relative;
+	overflow: hidden;
 	.body-left {
 		width: 50%;
 		height: 100%;
 		position: relative;
 		box-sizing: border-box;
-		overflow: hidden;
+		
 		.bg-img {
 			box-sizing: border-box;
 			position: absolute;
@@ -59,6 +60,76 @@ body {
 			position: absolute;
 			right: 120px;
 			bottom: 125px;
+		}
+	}
+	.body-main {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 575px;
+		height: 560px;
+		background: #fff;
+		transform: translate(-50%,-50%);
+		box-shadow: 10px 0px 60px rgba(185, 182, 182,.6);
+		font-family: 'Microsoft YaHei';
+		.main-title {
+			box-sizing: border-box;
+			line-height: 180px;
+			padding-left: 90px;
+			color: #21a8f9;
+			font-size: 35px;
+			font-weight: bold;
+		}
+		.main-form {
+			box-sizing: border-box;
+			color: #ddd;
+			.login-input {
+				border: none;
+				border-bottom: 1px solid #ddd;
+				width: 100%;
+				outline: none;
+				padding: 8px 2px;
+				font-size: 16px;
+			}
+			.login-btn {
+				cursor: pointer;
+				outline: none;
+				width: 90px;
+				height: 45px;
+				border-radius: 4px;
+				background: transparent;
+				font-size: 16px;
+			}
+
+			.form-name {
+				padding: 0 90px;
+			}
+			.form-pwd {
+				margin-top: 40px;
+				padding: 0 90px;
+			}
+			.from-code {
+				margin-top: 40px;
+				padding: 0 90px;
+				.code-btn {
+					display: inline-block;
+					margin-right: 20px;
+					box-sizing: border-box;
+					.btn-code {
+						border: 1px solid rgb(118,118,118);
+						color: #999;
+					}
+					.btn-code:active {
+						background: #ccc; 
+						color: #fff;
+					}
+				}
+				.code-content {
+					display: inline-block;
+					width: 100px;
+					height: 45px;
+				}
+			}
 		}
 	}
 }
