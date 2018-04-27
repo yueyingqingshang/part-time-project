@@ -41,8 +41,8 @@
 					<p class="pwd-err hide">密码输入错误</p>
 				</div>
 				<div class="from-code clearfix">
-					<div class="code-btn">
-						<button class="login-btn btn-code">验证码</button>
+					<div class="code-input">
+						<input type="text" class="code-val" placeholder="验证码">
 					</div>
 					<div class="code-content">
 						<img src="" alt="" class="code-img">
@@ -60,17 +60,11 @@
 	<script src="../../lib/jquery/jquery.min.js"></script>
 	<script src="../../js/common.js"></script>
 	<script>
-		$('.btn-code').click(function() {
-			$('.code-img').attr('src','');
-			$.ajax({
-            	url : PensionService.buildUrl('Login/GetCodeImg'),
-            	type : "GET",
-            	async: false
-        	}).done(function(data){
-            	
-        	});
-            console.log(PensionService.buildUrl('Login/GetCodeImg'));
-        	$('.code-img').attr('src',PensionService.buildUrl('Login/GetCodeImg'));
+		$(function() {
+			$('.code-img').prop('src',PensionService.buildUrl('Login/GetCodeImg') + '?' + new Date().getTime());
+		});
+		$('.main-form').on('click','.code-img',function() {
+			$(this).prop('src',PensionService.buildUrl('Login/GetCodeImg') + '?' + new Date().getTime());
 		});
 	</script>
 </body>
