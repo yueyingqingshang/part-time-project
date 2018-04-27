@@ -15,7 +15,6 @@ body {
 		height: 100%;
 		position: relative;
 		box-sizing: border-box;
-		
 		.bg-img {
 			box-sizing: border-box;
 			position: absolute;
@@ -83,6 +82,7 @@ body {
 		.main-form {
 			box-sizing: border-box;
 			color: #ddd;
+			font-family: 'Microsoft YaHei';
 			.login-input {
 				border: none;
 				border-bottom: 1px solid #ddd;
@@ -90,6 +90,22 @@ body {
 				outline: none;
 				padding: 8px 2px;
 				font-size: 16px;
+				color: #666;
+			}
+			.login-input::-webkit-input-placeholder {
+				color: #999;
+			}
+			.login-input:-moz-input-placeholder {
+				color: #999;
+			}
+			.login-input:-ms-input-placeholder {
+				color: #999;
+			}
+			.login-input::-webkit-input-placeholder {
+				color: #999;
+			}
+			.login-input:placeholder {
+				color: #999;
 			}
 			.login-btn {
 				cursor: pointer;
@@ -100,19 +116,62 @@ body {
 				background: transparent;
 				font-size: 16px;
 			}
-
 			.form-name {
 				padding: 0 90px;
+				position: relative;
+				.name-err {
+					position: absolute;
+					right: 90px;
+					bottom: 8px;
+					color: rgba(255,0,0,.4);
+					font-size: 14px;
+				}
+				.name-err:before {
+					content:"!";
+					position: absolute;
+					right: 105px;
+					bottom: 0px;
+					display: block;
+					text-align: center;
+					width:15px;
+					line-height:15px;
+					border-radius:50%;
+					font-size: 12px;
+					color:#fff;
+					background: rgba(255,0,0,.4);
+				}
 			}
 			.form-pwd {
 				margin-top: 40px;
 				padding: 0 90px;
+				position: relative;
+				.pwd-err {
+					position: absolute;
+					right: 90px;
+					bottom: 8px;
+					color: rgba(255,0,0,.4);
+					font-size: 14px;
+				}
+				.pwd-err:before {
+					content:"!";
+					position: absolute;
+					right: 90px;
+					bottom: 0px;
+					display: block;
+					text-align: center;
+					width:15px;
+					line-height:15px;
+					border-radius:50%;
+					font-size: 12px;
+					color:#fff;
+					background: rgba(255,0,0,.4);
+				}
 			}
 			.from-code {
 				margin-top: 40px;
 				padding: 0 90px;
 				.code-btn {
-					display: inline-block;
+					float: left;
 					margin-right: 20px;
 					box-sizing: border-box;
 					.btn-code {
@@ -125,9 +184,46 @@ body {
 					}
 				}
 				.code-content {
-					display: inline-block;
+					float: left;
+					box-sizing: border-box;
 					width: 100px;
 					height: 45px;
+					background: #ddd;
+				}
+			}
+			.form-button {
+				padding: 0 90px;
+				margin-top: 40px;
+				box-sizing: border-box;
+				.btn-submit {
+					width: 100%;
+					background: #21a8f9;
+					border: none;
+					color: #fff;
+					font-size: 20px;
+					font-weight: bold;
+					letter-spacing:15px;
+					border-radius: 100px;
+					text-align: center;
+				}
+				.btn-submit:active {
+					background: #098ad8;
+				}
+			}
+			.form-register {
+				padding: 0 90px;
+				margin-top: 20px;
+				a {
+					color: #999;
+					text-decoration: none;
+					cursor: pointer;
+				}
+				a:hover {
+					color: #21a8f9;
+				}
+				a:active {
+					text-decoration: underline;
+					cursor: pointer;
 				}
 			}
 		}

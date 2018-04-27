@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/login/login.css">
+</head>
+<body>
+<div class="testimg"></div>
+	<div class="login-body clearfix">
+		<div class="body-left full-left">
+			<div class="bg-img">
+				<img src="../../img/login_bac_01.png" alt="">
+			</div>
+			<div class="bg-title">
+				<p>养老平台管理系统</p>
+			</div>
+			<div class="bg-line"></div>
+		</div>
+		<div class="body-right full-right">
+			<div class="bg-vertical-one">
+				<img src="../../img/login_pic_04.png" alt="">
+			</div>
+			<div class="bg-vertical-two">
+				<img src="../../img/login_pic_08.png" alt="">
+			</div>
+		</div>
+		<div class="body-main">
+			<div class="main-title">
+				<p>登录</p>
+			</div>
+			<div class="main-form">
+				<div class="form-name">
+					<input type="text" class="login-input" placeholder="用户名">
+					<p class="name-err hide">用户名输入错误</p>
+				</div>
+				<div class="form-pwd">
+					<input type="password" class="login-input" placeholder="密码">
+					<p class="pwd-err hide">密码输入错误</p>
+				</div>
+				<div class="from-code clearfix">
+					<div class="code-btn">
+						<button class="login-btn btn-code">验证码</button>
+					</div>
+					<div class="code-content">
+						<img src="" alt="" class="code-img">
+					</div>
+				</div>
+				<div class="form-button">
+					<button class="login-btn btn-submit">登录</button>
+				</div>
+				<div class="form-register">
+					<a href="javascript:;">立即注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../lib/jquery/jquery.min.js"></script>
+	<script src="../../js/common.js"></script>
+	<script>
+		$('.btn-code').click(function() {
+			$('.code-img').attr('src','');
+			$.ajax({
+            	url : PensionService.buildUrl('Login/GetCodeImg'),
+            	type : "GET",
+            	async: false
+        	}).done(function(data){
+            	
+        	});
+            console.log(PensionService.buildUrl('Login/GetCodeImg'));
+        	$('.code-img').attr('src',PensionService.buildUrl('Login/GetCodeImg'));
+		});
+	</script>
+</body>
+</html>

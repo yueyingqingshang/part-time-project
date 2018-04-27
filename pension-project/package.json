@@ -1,0 +1,19 @@
+{
+  "name": "pension",
+  "version": "1.0.0",
+  "description": "bundle the css and js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "taoeer",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sequence": "^1.0.0",
+    "gulp-uglify": "^3.0.0",
+    "path": "^0.12.7"
+  }
+}

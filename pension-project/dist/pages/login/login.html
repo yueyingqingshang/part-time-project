@@ -3,15 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="../css/reset.css">
-	<link rel="stylesheet" href="../css/common.css">
-	<link rel="stylesheet" href="../css/login/login.css">
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/login/login.css">
 </head>
 <body>
 	<div class="login-body clearfix">
 		<div class="body-left full-left">
 			<div class="bg-img">
-				<img src="../img/login_bac_01.png" alt="">
+				<img src="../../img/login_bac_01.png" alt="">
 			</div>
 			<div class="bg-title">
 				<p>养老平台管理系统</p>
@@ -20,10 +20,10 @@
 		</div>
 		<div class="body-right full-right">
 			<div class="bg-vertical-one">
-				<img src="../img/login_pic_04.png" alt="">
+				<img src="../../img/login_pic_04.png" alt="">
 			</div>
 			<div class="bg-vertical-two">
-				<img src="../img/login_pic_08.png" alt="">
+				<img src="../../img/login_pic_08.png" alt="">
 			</div>
 		</div>
 		<div class="body-main">
@@ -33,17 +33,25 @@
 			<div class="main-form">
 				<div class="form-name">
 					<input type="text" class="login-input" placeholder="用户名">
+					<p class="name-err hide">用户名输入错误</p>
 				</div>
 				<div class="form-pwd">
-					<input type="text" class="login-input" placeholder="密码">
+					<input type="password" class="login-input" placeholder="密码">
+					<p class="pwd-err hide">密码输入错误</p>
 				</div>
-				<div class="from-code">
+				<div class="from-code clearfix">
 					<div class="code-btn">
 						<button class="login-btn btn-code">验证码</button>
 					</div>
 					<div class="code-content">
 						<p></p>
 					</div>
+				</div>
+				<div class="form-button">
+					<button class="login-btn btn-submit">登录</button>
+				</div>
+				<div class="form-register">
+					<a href="javascript:;">立即注册</a>
 				</div>
 			</div>
 		</div>
