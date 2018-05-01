@@ -174,18 +174,35 @@ body {
   margin-top: 40px;
   padding: 0 90px;
 }
-.login-body .body-main .main-form .from-code .code-btn {
+.login-body .body-main .main-form .from-code .code-input {
   float: left;
   margin-right: 20px;
   box-sizing: border-box;
 }
-.login-body .body-main .main-form .from-code .code-btn .btn-code {
-  border: 1px solid #767676;
+.login-body .body-main .main-form .from-code .code-input .code-val {
+  width: 90px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  outline: none;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+}
+.login-body .body-main .main-form .from-code .code-input .code-val::-webkit-input-placeholder {
   color: #999;
 }
-.login-body .body-main .main-form .from-code .code-btn .btn-code:active {
-  background: #ccc;
-  color: #fff;
+.login-body .body-main .main-form .from-code .code-input .code-val:-moz-input-placeholder {
+  color: #999;
+}
+.login-body .body-main .main-form .from-code .code-input .code-val:-ms-input-placeholder {
+  color: #999;
+}
+.login-body .body-main .main-form .from-code .code-input .code-val::-webkit-input-placeholder {
+  color: #999;
+}
+.login-body .body-main .main-form .from-code .code-input .code-val:placeholder {
+  color: #999;
 }
 .login-body .body-main .main-form .from-code .code-content {
   float: left;
@@ -193,6 +210,11 @@ body {
   width: 100px;
   height: 45px;
   background: #ddd;
+}
+.login-body .body-main .main-form .from-code .code-content .code-img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 .login-body .body-main .main-form .form-button {
   padding: 0 90px;

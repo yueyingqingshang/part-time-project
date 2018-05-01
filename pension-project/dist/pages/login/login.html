@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="../../css/login/login.css">
 </head>
 <body>
+<div class="testimg"></div>
 	<div class="login-body clearfix">
 		<div class="body-left full-left">
 			<div class="bg-img">
@@ -40,11 +41,11 @@
 					<p class="pwd-err hide">密码输入错误</p>
 				</div>
 				<div class="from-code clearfix">
-					<div class="code-btn">
-						<button class="login-btn btn-code">验证码</button>
+					<div class="code-input">
+						<input type="text" class="code-val" placeholder="验证码">
 					</div>
 					<div class="code-content">
-						<p></p>
+						<img src="" alt="" class="code-img">
 					</div>
 				</div>
 				<div class="form-button">
@@ -56,5 +57,15 @@
 			</div>
 		</div>
 	</div>
+	<script src="../../lib/jquery/jquery.min.js"></script>
+	<script src="../../js/common.js"></script>
+	<script>
+		$(function() {
+			$('.code-img').prop('src',PensionService.buildUrl('Login/GetCodeImg') + '?' + new Date().getTime());
+		});
+		$('.main-form').on('click','.code-img',function() {
+			$(this).prop('src',PensionService.buildUrl('Login/GetCodeImg') + '?' + new Date().getTime());
+		});
+	</script>
 </body>
 </html>
