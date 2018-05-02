@@ -8,12 +8,14 @@ gulp.task('clean',function() {
             "./dist/js",
             "./dist/css",
             "./dist/img",
-            "./dist/lib"
+            "./dist/lib",
+            "./dist/index.html"
         ])
         .pipe(plugins.clean());
 });
 gulp.task('copy', function() {
     runSequence('clean',['copy:pages','copy:js','copy:css','copy:img','copy:lib'],function() {
+        //return gulp.src('index.html').pipe(gulp.src('dist/index.html'));
     });
 });
 //复制页面
