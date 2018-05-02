@@ -8,6 +8,7 @@ var APP_ROOT = 'http://101.37.80.171/';
  */
 (function  handelAjax($) {
 	var _ajax = $.ajax;
+	
 	$.ajax = function (opt) {
 		//备份opt中error和success方法
 		var fn = {
@@ -48,9 +49,11 @@ var APP_ROOT = 'http://101.37.80.171/';
 
 //构建url
 PensionService.buildUrl = function(url) {
-	return APP_ROOT + url;
+	var _token = $.cookie("token");
+	return APP_ROOT + url + '?token=' + _token;
 };
 
+//重新登录
 //左侧菜单栏展开收起
 $('.pen-side-menu').off('click').on('click','.nav-a',function() {
 	var menu_list = $(this).closest('.pen-nav'),
