@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>养老平台管理系统</title>
+	<!-- <title>养老平台管理系统</title> -->
 
 	<!-- 一些引入的库的css -->
 	<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="lib/layui/css/layui.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/pensionui/pension.css">
@@ -14,7 +15,7 @@
 	<!-- 顶部导航 -->
 	<div class="nav-bar clearfix">
 		<div class="full-left pen-title">
-			<h1>养老平台管理系统</h1>
+			<!-- <h1>养老平台管理系统</h1> -->
 		</div>
 		<div class="full-right use-info">
 			<div class="use-img">
@@ -42,7 +43,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="pen-content">
+	<div class="pen-content clearfix">
 		<!-- 侧边菜单栏 -->
 		<div class="pen-side-menu">
 			<ul class="pen-nav">
@@ -56,7 +57,7 @@
 					</a>
 					<dl class="pen-nav-child hide">
 						<dd>
-							<a href="javascript:;">员工管理</a>
+							<a href="javascript:;" data-type="tabAdd" class="pen-nav-operate">员工管理</a>
 						</dd>
 						<dd>
 							<a href="javascript:;">角色管理</a>
@@ -122,14 +123,57 @@
 		</div>
 
 		<!-- 主题内容 -->
-		<div class="pen-body">
+		<div class="pen-main">
+			<div class="main-body">
+				<div class="layui-tab" lay-filter="demo" lay-allowclose="true">
+					<ul class="layui-tab-title">
+						<li class="layui-this" lay-id="11">网站设置</li>
+					</ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">这是首页</div>
+					</div>
+				</div>
+			</div>
 			
 		</div>
+		
 	</div>
 	<script src="lib/jquery/jquery.min.js"></script>
 	<script src="lib/jquery/jquery.cookie.js"></script>
 	<script src="lib/jqgrid/jquery.jqGrid.min.js"></script>
 	<script src="lib/layer/layer.js"></script>
+	<script src="lib/layui/layui.js"></script>
 	<script src="js/common.js"></script>
+	<script>
+		layui.use('element',function() {
+			var $lay = layui.jquery,
+				element = layui.element;
+			//触发事件
+			var active = {
+				tabAdd: function(){
+				  	//新增一个Tab项
+				  	element.tabAdd('demo', {
+				    	title: '新选项'+ (Math.random()*1000|0) //用于演示
+				    	,content: '内容'+ (Math.random()*1000|0)
+				    	,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+				  	})
+				},
+				tabDelete: function(othis){
+			  		//删除指定Tab项
+			  		element.tabDelete('demo', '44'); //删除：“商品管理”
+			  		othis.addClass('layui-btn-disabled');
+				},
+				tabChange: function(){
+			  		//切换到指定Tab项
+			  		element.tabChange('demo', '22'); //切换到：用户管理
+				}
+			};
+			$lay('.pen-nav').on('click','.pen-nav-operate',function() {
+				var othis = $lay(this), type = othis.data('type');
+				$lay('.layui-tab-content').find('.layui-tab-item').removeClass('.layui-show')
+    			active[type] ? active[type].call(this, othis) : '';
+			})
+		});
+	</script>
 </body>
 </html>

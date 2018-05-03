@@ -1,6 +1,65 @@
 'use strict';
 var PensionService = {};
 var APP_ROOT = 'http://101.37.80.171/';
+var globalLoadingLayer;
+
+//一些请求错误提示
+var _statusText = {
+	_401: '无权访问:未登录或者会话已过期',
+	_403: '服务器拒绝访问',
+	_404: '没有找到所请求的服务',
+	_413: '请求内容过大',
+	_500: '服务器内部错误',
+	_501: '服务器未实现该服务',
+	_502: '线路不通，无法到达',
+	_503: '所请求的服务不可用',
+	_504: '网关超时',
+	_505: '服务器不支持请求所使用的HTTP版本',
+};
+
+/**
+ * 根据请求结果获取状态信息
+ * @param  {[type]} XMLHttpRequest [description]
+ * @return {[type]}                [description]
+ */
+function getAjaxErrorInfo (XMLHttpRequest)  {
+	var status = XMLHttpRequest.status;
+
+	try {
+		var fixedResponse = XMLHttpRequest.responseText.replace(/\\'/g, "'");
+		var jsonObj = JSON.parse(fixedResponse);
+		return jsonObj.message;
+	} catch (e) {
+		if (status > 200) {
+			switch (status) {
+				case 401:
+					return _statusText._401;
+				case 403:
+					return _statusText._403;
+				case 404:
+					return _statusText._404;
+				case 413:
+					return _statusText._413;
+				case 500:
+					return _statusText._500;
+				case 501:
+					return _statusText._501;
+				case 502:
+					return _statusText._502;
+				case 503:
+					return _statusText._503;
+				case 504:
+					return _statusText._504;
+				case 505:
+					return _statusText._505;
+				default:
+					break;
+			}
+		}
+	}
+
+	return _statusText._unused + ':' + status;
+}
 /**
  * [handelAjax description]
  * @param  {[type]} opt [请求配置]
