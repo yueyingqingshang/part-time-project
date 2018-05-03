@@ -15,7 +15,7 @@ gulp.task('clean',function() {
 });
 gulp.task('copy', function() {
     runSequence('clean',['copy:pages','copy:js','copy:css','copy:img','copy:lib'],function() {
-        //return gulp.src('index.html').pipe(gulp.src('dist/index.html'));
+        return gulp.src('index.html').pipe(gulp.dest('./dist'));
     });
 });
 //复制页面
