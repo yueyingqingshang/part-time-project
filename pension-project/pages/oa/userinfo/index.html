@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../lib/jqgrid/ui.jqgrid.css" rel="stylesheet" />
+    <link href="../../../css/jqgrid-pen.css" rel="stylesheet" />
+    <link href="../../../css/common.css" rel="stylesheet" />
+</head>
+<body>
+    <!--工具栏-->
+    
+
+    <!--table数据-->
+    <table id="jqGrid"></table>
+    <form id="mybar" class="form-inline ml10">
+        <div class="form-group">
+            <label for="userName">姓名</label>
+            <input type="text" class="form-control" id="userName" placeholder="姓名">
+        </div>
+        <div class="form-group">
+            <label for="phone">手机号</label>
+            <input type="text" class="form-control" id="phone" placeholder="手机号">
+
+        </div>
+        <div class="btn-group">
+            <span class="glyphicon glyphicon-search pen-btn" aria-hidden="true" title="查询" id="query"></span>
+            <span class="glyphicon glyphicon-plus pen-btn" aria-hidden="true" title="添加" id="add"></span>
+            <span class="glyphicon glyphicon-pencil pen-btn" aria-hidden="true" title="编辑" id="edit"></span>
+            <span class="glyphicon glyphicon-remove pen-btn" aria-hidden="true" title="删除" id="delete"></span>
+            <span class="glyphicon glyphicon-ok pen-btn" aria-hidden="true" title="保存" id="save"></span>
+        </div>
+    </form>
+    <!--分页展示-->
+    <div id="jqGridPager">
+        
+    </div>
+    <script src="../../../lib/jquery/jquery.min.js"></script>
+    <script src="../../../lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <!--jqTable列表-->
+    <script src="../../../lib/jqgrid/i18n/grid.locale-cn.js"></script>
+    <script src="../../../lib/jqgrid/jquery.jqGrid.min.js"></script>
+
+    <!--layer弹层-->
+    <script src="../../../lib/layer/layer.js"></script>
+    <!--工具类-->
+    <script src="../../../js/project.js"></script>
+</body>
+</html>
+
+
+
+<script>
+    $(function () {
+        add();          //新增
+        query();        //查询
+        loadData();     //加载数据
+    });
+
+
+
+    //新增
+    function add() {
+        $("#add").on("click", function () {
+            layer.open({
+                type: 2,
+                area: ['850px', '550px'],
+                content: 'addUserInfo.html',
+                btn: ['确认','取消'],
+                yes: function() {
+                    layer.msg('点了确定');
+                },
+                cancel: function(index) {
+                    layer.close(index);
+                }
+            });
+        });
+    }
+
+    //重新加载数据
+    function query() {
+        $("#query").on("click", function () {
+            $("#jqGrid").jqGrid('setGridParam', {
+                datatype: 'json',
+                postData: $("#mybar").serialize(),  //发送数据
+                page: 1
+            }).trigger("reloadGrid");              //重新载入
+        });
+    }
+
+
+    //加载数据
+    function loadData() {
+        $("#jqGrid").jqGrid({
+            url: "http://101.37.80.171/login/getlist",
+            colModel: [
+                { label: '主键ID', name: 'id', hidden: true, key: true },
+                { label: '用户名', name: 'mc' },
+                { label: '真实姓名', name: 'zsmc', width: 150 },
+                { label: '身份证号', name: 'sfzh', width: 100 },
+                { label: '手机号', name: 'sjh', width: 50 },
+                { label: '出生年月', name: 'csny', width: 50 },
+                { label: '入职日期', name: 'rzsj', width: 80 },
+                { label: '地址', name: 'rzsj', width: 80 },
+            ],
+        });
+
+        $("#mybar").appendTo("#t_jqGrid");
+    }
+
+</script>
+
+

@@ -4,7 +4,7 @@ v1.0.0
 */
 .nav-bar {
   height: 80px;
-  background: #F0FFF0;
+  background: #f5f5f5;
 }
 .nav-bar .pen-title {
   height: 80px;
@@ -31,10 +31,11 @@ v1.0.0
   top: 50%;
   margin-top: -28px;
   border-radius: 100%;
-  background: rgba(255, 0, 0, 0.4);
+  background: #009EDB;
 }
 .nav-bar .use-info .login-info {
   line-height: 80px;
+  height: 80px;
   width: 120px;
   color: #666;
   cursor: pointer;
@@ -126,10 +127,17 @@ v1.0.0
 .pen-content .pen-main {
   overflow: hidden;
   padding-left: 10px;
-  /*float: right;
-		width: 100%;
-		margin-left: -220px;
-		.main-body {
-			margin-left: : 220px;
-		}*/
+  height: 100%;
+}
+.pen-content .pen-main .main-body {
+  height: 100%;
+}
+.pen-content .pen-main .main-body .layui-tab {
+  height: 100%;
+}
+.pen-content .pen-main .main-body .layui-tab .layui-tab-content {
+  height: 100%;
+}
+.pen-content .pen-main .main-body .layui-tab .layui-tab-content .layui-tab-item {
+  height: 100%;
 }

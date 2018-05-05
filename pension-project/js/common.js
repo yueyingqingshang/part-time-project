@@ -2,7 +2,6 @@
 var PensionService = {};
 var APP_ROOT = 'http://101.37.80.171/';
 var globalLoadingLayer;
-
 //一些请求错误提示
 var _statusText = {
 	_401: '无权访问:未登录或者会话已过期',
@@ -93,12 +92,14 @@ function getAjaxErrorInfo (XMLHttpRequest)  {
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
 			},
 			beforeSend:function(){
+				layer.load(1);
 			},
 			success: function (data, textStatus) {
 				//若要移除loading,则移除
 				fn.success(data, textStatus);
 			},
-			complete: function()  {			
+			complete: function()  {	
+				layer.closeAll('loading');		
 			}
 		});
 		var _startTime = (new Date()).getTime();
@@ -108,7 +109,9 @@ function getAjaxErrorInfo (XMLHttpRequest)  {
 
 //构建url
 PensionService.buildUrl = function(url) {
-	var _token = $.cookie("token");
+	var _token = $.cookie("token") || 'e18a641e-e0d4-4c4b-8db3-dee03b796615';
+	console.log(_token);
+
 	return APP_ROOT + url + '?token=' + _token;
 };
 
@@ -140,4 +143,87 @@ $('.pen-side-menu').off('click').on('click','.nav-a',function() {
 		this_child.removeClass('show').addClass('hide');
 		$(this).css("border-left-color",'transparent');
 	};
+});
+
+//登录
+function login(params) {
+	$.ajax({
+		url: APP_ROOT + 'Login/Login',
+		type: 'GET',
+		data: params
+	}).done(function(res) {
+		$.cookie("token", res.data.loginSessionId);
+		window.location.href = "../../index.html";
+	});
+};
+
+//登录之后获取用户信息
+function getUserInfo() {
+	$.ajax({
+		url: PensionService.buildUrl('home/MyInfo'),
+		type: 'GET',
+	}).done(function(res) {
+		console.log(res);
+		if(res.status) {
+			$('.login-info').find('.user-name').text(res.data.zsmc);
+		}
+	});
+};
+
+layui.use('element',function() {
+	var $lay = layui.jquery,
+		element = layui.element;
+	element.tabDelete('first_page');
+	//触发事件
+	var active = {
+		tabAdd: function(opt){
+		  	//新增一个Tab项
+	  		element.tabAdd('pen-tab', opt);
+		},
+		tabChange: function(tab_id){
+	  		//切换到指定Tab项
+	  		element.tabChange('pen-tab', tab_id); //切换到：用户管理
+		}
+	};
+	$lay('.pen-nav').on('click','.pen-nav-operate',function() {
+		var othis = $lay(this),
+			tab_id =  othis.data('title'),
+			tab_title = othis.data('title'),
+			tab_url = othis.data('url'),
+			tab_nav = $lay('.layui-tab-title').find('li');
+			if(!tab_nav.length) {
+				addTab();
+			} else {
+				//判断是否打开过页面
+				var isOpen = false;
+				$.each(tab_nav,function() {
+					var item_id = $(this).attr('lay-id');
+					if(item_id == tab_id) {
+						isOpen = true;
+					};
+				});
+				if(!isOpen) {
+					addTab();
+				};
+			};
+			function addTab() {
+				active.tabAdd({
+					id: tab_title,
+					title: tab_title,
+					content: '<iframe data-frameid="'+ tab_title +'" scrolling="auto" frameborder="0" src="'+ tab_url +'.html" style="width:100%;height:85%;"></iframe>',
+				});
+			};
+			active.tabChange(tab_title);
+	});
+	element.on('tab',function(data) {
+		$lay('.pen-nav-operate').removeClass('child-this');
+		var nav_list = $lay('.pen-nav-operate');
+		for(var i = 0,len = nav_list.length;i<len;i++) {
+			var item = nav_list.eq(i);
+			if($(this).attr('lay-id') == $(item).data('title')) {
+				$(item).addClass('child-this');
+				break;
+			};
+		}
+	})
 });

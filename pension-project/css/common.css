@@ -31,3 +31,37 @@ body {
 .show {
   display: block !important;
 }
+.btn-group {
+  padding-left: 5px;
+}
+.btn-group .pen-btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.btn-group .pen-btn:hover {
+  background: #ddd;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+.pen-btn-group {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  padding-right: 15px;
+  background: #f0f4f7;
+  border-top: 1px solid #ddd;
+}
+.layui-layer-btn {
+  background: #f8f8f8;
+  border-top: 1px solid #eee;
+}
