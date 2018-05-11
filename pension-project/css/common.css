@@ -31,6 +31,24 @@ body {
 .show {
   display: block !important;
 }
+/*公共margin、padding样式*/
+.mt10 {
+  margin-top: 10px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+.pr5 {
+  padding-right: 5px;
+}
+.pl25 {
+  padding-left: 25px;
+}
+.pr30 {
+  padding-right: 30px;
+}
+/*公共文本对齐样式*/
+/*公共组件样式*/
 .btn-group {
   padding-left: 5px;
 }
@@ -45,12 +63,6 @@ body {
 .btn-group .pen-btn:hover {
   background: #ddd;
 }
-.mt10 {
-  margin-top: 10px;
-}
-.ml10 {
-  margin-left: 10px;
-}
 .pen-btn-group {
   position: fixed;
   right: 0;
@@ -64,4 +76,13 @@ body {
 .layui-layer-btn {
   background: #f8f8f8;
   border-top: 1px solid #eee;
+}
+.required-filed label {
+  position: relative;
+}
+.required-filed label span {
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  color: red;
 }

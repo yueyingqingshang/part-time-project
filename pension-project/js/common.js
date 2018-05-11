@@ -109,7 +109,7 @@ function getAjaxErrorInfo (XMLHttpRequest)  {
 
 //构建url
 PensionService.buildUrl = function(url) {
-	var _token = $.cookie("token") || 'e18a641e-e0d4-4c4b-8db3-dee03b796615';
+	var _token = $.cookie("token") || '52349e4c-edff-45f9-ad15-524f6065820b';
 	console.log(_token);
 
 	return APP_ROOT + url + '?token=' + _token;
