@@ -21,9 +21,9 @@
 			<div class="use-img">
 				<img src="" alt="">
 			</div>
-			<div class="login-info full-right">
-				<p class="user-name">未登录</p>
-				<ul class="use-menu hide">
+			<div class="login-info">
+				<p><span class="user-name">未登录</span><i class="fa fa-caret-down ml10" aria-hidden="true"></i></p>
+				<ul class="use-menu">
 					<li class="menu-item">
 						<a href="javascript:;">我的信息</a>
 					</li>
@@ -41,6 +41,16 @@
 					</li>
 				</ul>
 			</div>
+			<div class="login-msg">
+				<div class="msg-icon">
+					<i class="fa fa-bell"></i>
+				</div>
+			</div>
+			<div class="login-out full-right">
+				<div class="out-icon">
+					<i class="fa fa-sign-out"></i>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="pen-content clearfix">
@@ -49,7 +59,7 @@
 			<!-- <ul class="pen-nav" id="menuContext">
 				
 			</ul> -->
-			<ul class="pen-nav" id="menuContext"><li class="pen-nav-item"><a href="javascript:;" class="nav-a"><i class="fa fa-folder nav-icon" aria-hidden="true"></i><cite>OA管理</cite><span class="pen-nav-more"><i class="fa fa-caret-down" aria-hidden="true"></i></span></a><dl class="pen-nav-child hide"><dd><a href="javascript:;" class="pen-nav-operate" data-title="机构信息" data-url="/OA/Mechanism/Index">机构信息</a></dd><dd><a href="javascript:;" class="pen-nav-operate" data-title="组织架构" data-url="/OA/Department/Index">组织架构</a></dd><dd><a href="javascript:;" class="pen-nav-operate" data-title="职位管理" data-url="/OA/Role/Index">职位管理</a></dd><dd><a href="javascript:;" class="pen-nav-operate" data-title="职工管理" data-url="pages/oa/userinfo/index">职工管理</a></dd><dd><a href="javascript:;" class="pen-nav-operate" data-title="权限设置" data-url="/OA/Jurisdiction/Index">权限设置</a></dd></dl></li><li class="pen-nav-item"><a href="javascript:;" class="nav-a"><i class="fa fa-folder nav-icon" aria-hidden="true"></i><cite>系统设置</cite><span class="pen-nav-more"><i class="fa fa-caret-down" aria-hidden="true"></i></span></a><dl class="pen-nav-child hide"><dd><a href="javascript:;" class="pen-nav-operate" data-title="菜单管理" data-url="/OA/Menu/Index">菜单管理</a></dd></dl></li><li class="pen-nav-item"><a href="javascript:;" class="nav-a"><i class="fa fa-folder nav-icon" aria-hidden="true"></i><cite>客户管理</cite><span class="pen-nav-more"><i class="fa fa-caret-down" aria-hidden="true"></i></span></a><dl class="pen-nav-child hide"><dd><a href="javascript:;" class="pen-nav-operate" data-title="入住咨询" data-url="/OA/Customer/Index">入住咨询</a></dd></dl></li></ul>
+			<ul class="pen-nav" id="menuContext"><li class="pen-nav-item"><a href="javascript:;" class="nav-a"><i class="fa fa-folder nav-icon" aria-hidden="true"></i><cite>OA管理</cite><span class="pen-nav-more"><i class="fa fa-caret-down" aria-hidden="true"></i></span></a><dl class="pen-nav-child hide"><dd><a href="javascript:;" class="pen-nav-operate" data-title="机构信息" data-url="/OA/Mechanism/Index">机构信息</a></dd><dd><a href="javascript:;" class="pen-nav-operate" data-title="组织架构" data-url="pages/OA/Department/Index">组织架构</a></dd><dd><a href="javascript:;" class="pen-nav-operate" data-title="职位管理" data-url="/OA/Role/Index">职位管理</a></dd><dd><a href="javascript:;" class="pen-nav-operate" data-title="职工管理" data-url="pages/oa/userinfo/index">职工管理</a></dd><dd><a href="javascript:;" class="pen-nav-operate" data-title="权限设置" data-url="/OA/Jurisdiction/Index">权限设置</a></dd></dl></li><li class="pen-nav-item"><a href="javascript:;" class="nav-a"><i class="fa fa-folder nav-icon" aria-hidden="true"></i><cite>系统设置</cite><span class="pen-nav-more"><i class="fa fa-caret-down" aria-hidden="true"></i></span></a><dl class="pen-nav-child hide"><dd><a href="javascript:;" class="pen-nav-operate" data-title="菜单管理" data-url="/OA/Menu/Index">菜单管理</a></dd></dl></li><li class="pen-nav-item"><a href="javascript:;" class="nav-a"><i class="fa fa-folder nav-icon" aria-hidden="true"></i><cite>客户管理</cite><span class="pen-nav-more"><i class="fa fa-caret-down" aria-hidden="true"></i></span></a><dl class="pen-nav-child hide"><dd><a href="javascript:;" class="pen-nav-operate" data-title="入住咨询" data-url="/OA/Customer/Index">入住咨询</a></dd></dl></li></ul>
 		</div>
 		<!-- 主题内容 -->
 		<div class="pen-main">
@@ -115,6 +125,18 @@
 		};
 		initMenu();
 		getUserInfo();
+
+		//
+		$('.login-info').on('click',function() {
+			var this_i = $(this).find('i');
+			if(this_i.hasClass('fa-caret-down')) {
+				$('.use-menu').fadeIn();
+				this_i.removeClass('fa-caret-down').addClass('fa-caret-up');
+			} else {
+				$('.use-menu').fadeOut();
+				this_i.removeClass('fa-caret-up').addClass('fa-caret-down');
+			}
+		})
 	});
 	</script>
 </body>

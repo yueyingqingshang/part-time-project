@@ -1,27 +1,4 @@
-﻿
-// //异步请求全局变量
-// $(function () {
-//     try {
-//         $(function () {
-//             try {
-//                 $(document).ajaxSend(function () {
-//                     layer.load(1);
-//                 }).ajaxComplete(function (e) {
-//                     layer.closeAll('loading');
-//                 }).ajaxError(function (XMLHttpRequest, textStatus, errorThrown) {
-//                     layer.msg("获取数据异常,请联系管理员", { icon: 1 });
-//                     return;
-//                 });
-//             } catch (e) {
-//             }
-
-//         });
-//     } catch (e) {
-
-//     }
-// });
-
-try {
+﻿try {
     //初始化jqgrid参数
     $.jgrid.defaults = {
         styleUI: "Bootstrap",
@@ -40,11 +17,6 @@ try {
         ondblClickRow: function () {
         }
     };
-
-
 } catch (e) {
 
 }
-
-
-
