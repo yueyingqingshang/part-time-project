@@ -1,0 +1,77 @@
+.pen-register {
+	width: 100%;
+	height: 100%;
+	.register-header {
+		width: 100%;
+		height: 80px;
+		box-sizing: border-box;
+		font-size: 20px;
+		padding: 20px 0;
+		background: #f1f1f1;
+		border-bottom: 1px solid #ddd;
+		.header-content {
+			width:45%;
+			margin: 0 auto;
+			h1 {
+				color: #333;
+				font-size: 30px;
+				line-height: 40px;
+				margin: 0;
+				font-weight: bold;
+				opacity: .9;
+			}
+			button {
+				background: #fff;
+				border: 3px solid #666;
+				border-radius: 10px;
+				width: 80px;
+				height: 40px;
+				outline: none;
+				opacity: .9;
+				font-size: 20px;
+				color: #666;
+			}
+		}
+	}
+	.register-content {
+		width: 100%;
+		height: -moz-calc(~"100% - (80px)");
+    	height: -webkit-calc(~"100% - (80px)");
+    	height: calc(~"100% - (80px)");
+		background: #f1f1f1;
+		padding-top: 60px;
+		box-sizing: border-box;
+		.register-form {
+			width: 45%;
+			background: #fff;
+			margin: 0 auto;
+			border-radius: 10px;
+			h2 {
+				text-align: center;
+				margin: 0;
+				padding: 20px 0;
+				color: #21a8f9;
+				font-size: 35px;
+				font-weight: bold;
+			}
+			.form-horizontal {
+				width: 350px;
+				margin: 0 auto;
+				padding-bottom: 30px;
+				.input-group-addon {
+					width: 90px;
+					padding: 0;
+					padding-right: 5px;
+					text-align: right;
+				}
+				.input-group-addon:last-child{
+					width: 50px;
+				}
+				button {
+					background: #21a8f9;
+					border: none; 
+				}
+			}
+		}
+	}
+}

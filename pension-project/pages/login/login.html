@@ -54,7 +54,7 @@
 					<button class="login-btn btn-submit">登录</button>
 				</div>
 				<div class="form-register">
-					<a href="javascript:;">立即注册</a>
+					<a href="../register/register.html" target="_blank">立即注册</a>
 				</div>
 			</div>
 		</div>
@@ -66,10 +66,10 @@
 	<script src="../../js/common.js"></script>
 	<script>
 		$(function() {
-			$('.code-img').prop('src',PensionService.buildUrl('Login/GetCodeImg') + '?' + new Date().getTime());
+			//$('.code-img').prop('src',PensionService.buildUrl('Login/GetCodeImg') + '?' + new Date().getTime());
 		});
 		$('.main-form').on('click','.code-img',function() {
-			$(this).prop('src',PensionService.buildUrl('Login/GetCodeImg') + '?' + new Date().getTime());
+			//$(this).prop('src',PensionService.buildUrl('Login/GetCodeImg') + '?' + new Date().getTime());
 		})
 		.on('click','.btn-submit',function() {
 			var mc = $('.user-name').val();

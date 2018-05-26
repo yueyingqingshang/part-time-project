@@ -15,7 +15,7 @@ var _statusText = {
 	_504: '网关超时',
 	_505: '服务器不支持请求所使用的HTTP版本',
 };
-
+var Tools = {};
 /**
  * 根据请求结果获取状态信息
  * @param  {[type]} XMLHttpRequest [description]
@@ -170,6 +170,25 @@ function getUserInfo() {
 	});
 };
 
+//根据天数获取日期
+//days 传入天数，flag 是当前时间之前还是当前时间之后
+Tools.getDateByDsy = function(days,flag) {
+	var now = new Date().getTime(),
+		retDate = '',
+		ONE_DAY = 24 * 60 * 60 * 1000,
+		ret = {};
+	if(flag) {
+		retDate = now - (days * ONE_DAY);
+	} else {
+		retDate = now + (days * ONE_DAY);
+	};
+	retDate = new Date(retDate);
+	var year = retDate.getFullYear();
+	var month = (retDate.getMonth() + 1) > 9 ? (retDate.getMonth() + 1) : '0' + (retDate.getMonth() + 1);
+	var day = retDate.getDate()>9 ? retDate.getDate():'0'+ retDate.getDate();
+	var arr = [year,'-',month,'-',day];
+	return arr.join('');
+};
 layui.use('element',function() {
 	var $lay = layui.jquery,
 		element = layui.element;

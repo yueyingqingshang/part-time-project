@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../../css/main/main.css">
+</head>
+<body>
+	<div class="mian-body  container-fluid">
+		<div class="main-left">
+			<div class="main-chart">
+				<div id="pen-chart"></div>
+			</div>
+			<div class="main-footer">
+				<div id="footer-chart"></div>
+			</div>
+		</div>
+		<div class="main-right">
+			
+		</div>
+	</div>
+	<script src="../../lib/eChart/echarts.min.js"></script>
+	<script src="../../lib/jquery/jquery.min.js"></script>
+	<script src="../../lib/jquery/jquery.cookie.js"></script>
+	<script src="../../lib/layer/layer.js"></script>
+	<script src="../../lib/layui/layui.js"></script>
+	<script src="../../js/common.js"></script>
+	<script>
+		function initDate() {
+			var dateArr = [];
+			var dateLen = 8;
+			for(var i= dateLen;i>=0;i--) {
+				var date = Tools.getDateByDsy(i,true);
+				dateArr.push(date);
+			};
+			return dateArr;
+		};
+		function initChart() {
+			var xAxisData = initDate();
+			var option = {
+			    title : {
+			        text: '床位入住情况',
+			        top: '20px',
+			        left: '20px'
+			    },
+			    tooltip : {
+			        trigger: 'axis'
+			    },
+			    toolbox: {
+			        show : true,
+			        feature : {
+			            mark : {show: true},
+			            dataView : {show: true, readOnly: false},
+			            restore : {show: true},
+			            saveAsImage : {show: true}
+			        }
+			    },
+			    calculable : true,
+			    xAxis : [
+			        {
+			            type : 'category',
+			            boundaryGap : false,
+			            data : xAxisData
+			        }
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value'
+			        }
+			    ],
+			    series : [
+			        {
+			            name:'入住',
+			            type:'line',
+			            smooth:true,
+			            itemStyle: {normal: {areaStyle: {type: 'default',color: '#23c6c8'}}},
+			            lineStyle: {color: '#23c6c8'},
+			            data:[10, 12, 21, 30, 23, 33, 16,25,30]
+			        }
+			    ]
+			};
+			var el = document.getElementById('pen-chart');
+			var el2 = document.getElementById('footer-chart');
+			var myChart = echarts.init(el);
+			var myChart2 = echarts.init(el2);
+			myChart.setOption(option);
+			myChart2.setOption(option);
+		};
+		$(function() {
+			initChart();
+		});                 
+	</script>
+</body>
+</html>

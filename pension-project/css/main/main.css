@@ -1,0 +1,40 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.mian-body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: #EAEEF2;
+}
+.mian-body .main-left {
+  width: 60%;
+  height: 100%;
+  float: left;
+}
+.mian-body .main-left .main-chart {
+  width: 100%;
+  height: 470px;
+  background: #fff;
+}
+.mian-body .main-left .main-chart #pen-chart {
+  height: 100%;
+}
+.mian-body .main-left .main-footer {
+  width: 100%;
+  height: calc(100% - 490px);
+  margin: 10px 0;
+  background: #fff;
+}
+.mian-body .main-left .main-footer #footer-chart {
+  height: 100%;
+}
+.mian-body .main-right {
+  width: calc(39%);
+  float: right;
+  height: calc(100% - 10px);
+  margin-bottom: 10px;
+  background: #fff;
+}
