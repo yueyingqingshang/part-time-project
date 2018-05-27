@@ -5,10 +5,9 @@ html,body{
 .mian-body  {
 	width: 100%;
 	height: 100%;
-	padding: 0;
 	background: #EAEEF2;
 	.main-left {
-		width: 60%;
+		width: 65%;
 		height: 100%;
 		float: left;
 		.main-chart {
@@ -23,17 +22,140 @@ html,body{
 			width: 100%;
 			height: calc(~'100% - 490px');
 			margin: 10px 0;
+			box-sizing: border-box;
 			background: #fff;
 			#footer-chart {
 				height: 100%;
 			}
+			h5 {
+				width: 100%;
+				line-height: 50px;
+				color: #333;
+				padding-left: 25px;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			.main-nav {
+				width: 98%;
+				height: calc(~'100% - 70px');
+				margin: 0 auto;
+				box-sizing: border-box;
+				.main-nav-list {
+					float: left;
+					width: 50px;
+					height: calc(100%);
+					margin: 10px 0;
+					li {
+						display: block;
+						width: 100%;
+						line-height: 55px;
+						margin-bottom: 10px;
+						border: 1px solid #ccc;
+						text-align: center;
+						border-radius: 10px 0 0 10px;
+						position: relative;
+						cursor: pointer;
+						.nav-slider {
+							position: absolute;
+							width: 0;
+							height: 0;
+							border-color: #ccc;
+						}
+					}
+					li:hover {
+						background: #009DDD;
+						opacity: .9;
+						color: #fff;
+					}
+					.active {
+						background: #009DDD;
+						color: #FFF;
+					}
+				}
+				.nav-content {
+					float: left;
+					width: calc(~'100% - 50px');
+					height: 100%;
+					.content-item {
+						height: 100%;
+						box-sizing: border-box;
+						table {
+							/*height: 100% !important;*/
+							thead {
+								th {
+									text-align: center;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 	.main-right {
-		width: calc(100% - 61%);
+		width: calc(100% - 66%);
 		float: right;
 		height: calc(~'100% - 10px');;
 		margin-bottom: 10px;
 		background: #fff;
+		h5 {
+			width: 100%;
+			line-height: 70px;
+			color: #333;
+			padding-left: 25px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		padding: 0 20px;
+		.main-progress {
+			width: 100%;
+			height: 470px;
+			border-bottom: 1px solid #ccc;
+			.progress-item {
+				height: 30px;
+				width: 99%;
+				margin: 5px auto;
+				padding: 5px 0;
+				div {
+					float: left;
+					height: 100%;
+				}
+				.progress-title {
+					width: 100px;
+					text-align: right;
+					padding-right: 15px;
+					color: #333;
+					font-size: 14px;
+				}
+				.progress-content {
+					width: calc(~'100% - 200px');
+					.progress {
+						width: 100%;
+						height: 20px;
+						background-color: #EAEFF0;
+						border-radius: 100px;
+						.progress-bar {
+							border-radius: 100px;
+						}
+					}
+				}
+				.progress-money {
+					width: 70px;
+					text-align: left;
+					padding-left: 10px;
+				}
+			}
+		}
+		.main-table {
+			.layui-table {
+				thead {
+					tr {
+						th{
+							text-align: center;
+						}
+					}
+				}
+			}
+		}
 	}
 }

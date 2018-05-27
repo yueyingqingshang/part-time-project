@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="../../css/reset.css">
 	<link rel="stylesheet" href="../../css/common.css">
 	<link href="../../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../../lib/layui/css/layui.css">
 	<link rel="stylesheet" href="../../css/main/main.css">
 </head>
 <body>
@@ -15,11 +16,193 @@
 				<div id="pen-chart"></div>
 			</div>
 			<div class="main-footer">
-				<div id="footer-chart"></div>
+				<h5>
+					楼栋楼宇床位情况
+				</h5>
+				<div class="main-nav container-fluid">
+					<ul class="main-nav-list">
+						<li class="main-nav-item active" data-li="1">
+							一号楼
+							<div class="nav-slider"></div>
+						</li>
+						<li class="main-nav-item" data-li="2">二号楼</li>
+						<li class="main-nav-item" data-li="3">三号楼</li>
+					</ul>
+					<div class="nav-content">
+						<div class="content-item" data-nav="1">
+							<table class="layui-table text-center" lay-even lay-skin="nob">
+								<thead>
+									<tr>
+										<th>楼层</th>
+										<th>房间总数</th>
+										<th>床位总数</th>
+										<th>满员房间</th>
+										<th>剩余床位</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1楼</td>
+										<td>10</td>
+										<td>30</td>
+										<td>3间(1、2、3)</td>
+										<td>15</td>
+									</tr>
+									<tr>
+										<td>1楼</td>
+										<td>10</td>
+										<td>30</td>
+										<td>3间(1、2、3)</td>
+										<td>15</td>
+									</tr>
+									<tr>
+										<td>1楼</td>
+										<td>10</td>
+										<td>30</td>
+										<td>3间(1、2、3)</td>
+										<td>15</td>
+									</tr>
+									<tr>
+										<td>1楼</td>
+										<td>10</td>
+										<td>30</td>
+										<td>3间(1、2、3)</td>
+										<td>15</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="content-item hide" data-nav="2">
+							<table class="layui-table text-center" lay-even lay-skin="nob">
+							  <!-- 无边框表格（内部结构参见右侧目录“常规用法”） -->
+							  <thead >
+							  	<tr>
+							  		<th>楼层</th>
+							  		<th>房间总数</th>
+							  		<th>床位总数</th>
+							  		<th>满员房间</th>
+							  		<th>剩余床位</th>
+							  	</tr>
+							  </thead>
+							  <tbody>
+							  	<tr>
+									<td>2楼</td>
+									<td>10</td>
+									<td>30</td>
+									<td>3间(1、2、3)</td>
+									<td>15</td>
+								</tr>
+							  	<tr>
+									<td>2楼</td>
+									<td>10</td>
+									<td>30</td>
+									<td>3间(1、2、3)</td>
+									<td>15</td>
+								</tr>
+								<tr>
+									<td>2楼</td>
+									<td>10</td>
+									<td>30</td>
+									<td>3间(1、2、3)</td>
+									<td>15</td>
+								</tr>
+								<tr>
+									<td>2楼</td>
+									<td>10</td>
+									<td>30</td>
+									<td>3间(1、2、3)</td>
+									<td>15</td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+						<div class="content-item hide" data-nav="3">
+							<table class="layui-table text-center" lay-even lay-skin="nob">
+							  <!-- 无边框表格（内部结构参见右侧目录“常规用法”） -->
+							  <thead >
+							  	<tr>
+							  		<th>楼层</th>
+							  		<th>房间总数</th>
+							  		<th>床位总数</th>
+							  		<th>满员房间</th>
+							  		<th>剩余床位</th>
+							  	</tr>
+							  </thead>
+							  <tbody>
+							  	<tr>
+									<td>3楼</td>
+									<td>10</td>
+									<td>30</td>
+									<td>3间(1、2、3)</td>
+									<td>15</td>
+								</tr>
+							  	<tr>
+									<td>3楼</td>
+									<td>10</td>
+									<td>30</td>
+									<td>3间(1、2、3)</td>
+									<td>15</td>
+								</tr>
+								<tr>
+									<td>3楼</td>
+									<td>10</td>
+									<td>30</td>
+									<td>3间(1、2、3)</td>
+									<td>15</td>
+								</tr>
+								<tr>
+									<td>3楼</td>
+									<td>10</td>
+									<td>30</td>
+									<td>3间(1、2、3)</td>
+									<td>15</td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="main-right">
-			
+			<div class="main-progress">
+				<h5>老人消费情况</h5>
+			</div>
+			<div class="main-table">
+				<h5>老人缴费情况</h5>
+				<table class="layui-table text-center" lay-even lay-skin="nob">
+				  <!-- 无边框表格（内部结构参见右侧目录“常规用法”） -->
+				  <thead >
+				  	<tr>
+				  		<th>姓名</th>
+				  		<th>性别</th>
+				  		<th>缴费金额</th>
+				  	</tr>
+				  </thead>
+				  <tbody>
+				  	<tr>
+				  		<td>张三</td>
+				  		<td>男</td>
+				  		<td>1600</td>
+				  	</tr>
+				  	<tr>
+				  		<td>张三</td>
+				  		<td>男</td>
+				  		<td>1600</td>
+				  	</tr>
+				  	<tr>
+				  		<td>张三</td>
+				  		<td>男</td>
+				  		<td>1600</td>
+				  	</tr>
+				  	<tr>
+				  		<td>张三</td>
+				  		<td>男</td>
+				  		<td>1600</td>
+				  	</tr>
+				  </tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 	<script src="../../lib/eChart/echarts.min.js"></script>
@@ -83,15 +266,92 @@
 			    ]
 			};
 			var el = document.getElementById('pen-chart');
-			var el2 = document.getElementById('footer-chart');
+			//var el2 = document.getElementById('footer-chart');
 			var myChart = echarts.init(el);
-			var myChart2 = echarts.init(el2);
+			//var myChart2 = echarts.init(el2);
 			myChart.setOption(option);
-			myChart2.setOption(option);
+			//myChart2.setOption(option);
+		};
+		//添加进度条
+		function initProgress () {
+			var pregressArr = [{
+				name: '张三',
+				money: '3600.00'
+			},{
+				name: '李老二',
+				money: '3600.00'
+			},{
+				name: '王老师',
+				money: '3600.00'
+			},{
+				name: '冯海',
+				money: '3600.00'
+			},{
+				name: '张志得',
+				money: '3600.00'
+			},{
+				name: '东皇太一',
+				money: '3600.00'
+			},{
+				name: '东皇太er',
+				money: '3600.00'
+			},{
+				name: '东皇太死',
+				money: '3600.00'
+			},{
+				name: '东皇太三',
+				money: '3600.00'
+			},{
+				name: '东皇太',
+				money: '3600.00'
+			}];
+			var html = '';
+			for(var i = 0,len = pregressArr.length;i<len;i++) {
+				var item = pregressArr[i];
+				html += '<div class="progress-item container-fluid">'+
+							'<div class="progress-title">'+
+								'<p>'+ item.name +'</p>'+
+							'</div>'+
+							'<div class="progress-content">'+
+								'<div class="progress">'+
+									'<div class="progress-bar" role="progressbar" >'+
+										'<span class="sr-only">60% Complete</span>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+							'<div class="progress-money">'+
+				 				'<p>￥'+ item.money +'</p>'+
+				 			'</div>'+
+			 			'</div>';
+			};
+			$('.main-progress').append(html);
+		};
+		//给进度条设置颜色
+		function setColor() {
+			var colorArr = ['#F86F24','#F79722','#F7BB24','#F7DD24','#FEF024','#DDFF23','#C5FF23','#A7FF23','#76FF24','#17FF24'];
+			var widthArr = ['50%','30%','20%','33%','55%','40%','44%','35%','56%','70%']
+			var progressArr = $('.progress-bar');
+			for(var i = 0,len = progressArr.length;i<len;i++) {
+				var item = progressArr.eq(i);
+				item.css({
+					'background-color': colorArr[i],
+					'width': widthArr[i]
+				});
+			};
 		};
 		$(function() {
 			initChart();
-		});                 
+			initProgress();
+			setColor();
+		});
+		$('.main-nav-list').off('click').on('click','.main-nav-item',function() {
+			var thisNav = parseInt($(this).data('li')) - 1;
+			var content = $('.content-item');
+			$('.main-nav-item').removeClass('active');
+			$(this).addClass('active');
+			content.addClass('hide').removeClass('show');
+			content.eq(thisNav).addClass('show').removeClass('hide');
+		})               
 	</script>
 </body>
 </html>

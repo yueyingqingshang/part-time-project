@@ -129,18 +129,22 @@ $('.pen-side-menu').off('click').on('click','.nav-a',function() {
 
 	//判断是展开图标还是收起图标
 	if(this_more_i.hasClass('fa-caret-up')) {
-		this_more_i.removeClass("fa-caret-up").addClass('fa-caret-down');
+		setTimeout(function() {
+			this_more_i.removeClass("fa-caret-up").addClass('fa-caret-down');
+		},100);
 	} else {
-		menu_list.find(".pen-nav-more").find('i').removeClass("fa-caret-up").addClass('fa-caret-down');
-		this_more_i.removeClass("fa-caret-down").addClass('fa-caret-up');
+		setTimeout(function() {
+			menu_list.find(".pen-nav-more").find('i').removeClass("fa-caret-up").addClass('fa-caret-down');
+			this_more_i.removeClass("fa-caret-down").addClass('fa-caret-up');
+		},100);
 	};
 
 	//判断子菜单是否打开
-	if(this_child.length && this_child.hasClass('hide')) {
-		menu_list.find('.pen-nav-child').removeClass('show').addClass('hide');
-		this_child.removeClass('hide').addClass('show');
+	if(this_child.length && this_child.hasClass('nav-hide')) {
+		menu_list.find('.pen-nav-child').removeClass('nav-show').addClass('nav-hide').slideUp();
+		this_child.removeClass('nav-hide').addClass('nav-show').slideDown(500);
 	} else {
-		this_child.removeClass('show').addClass('hide');
+		this_child.removeClass('nav-show').addClass('nav-hide').slideUp();
 		$(this).css("border-left-color",'transparent');
 	};
 });
